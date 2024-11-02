@@ -2,12 +2,11 @@
 
 const array = () => {
   const value = [];
-  Object.defineProperty(data, 'add', {
-    enumerable: false,
-    value(key, value) {
-      data[key] = value;
-      return data;
-    }
-  });
+  const f = (i) => {
+    return value[i];
+  };
+  f.push = (element) => value.push(element);
+  f.pop = () => value.pop();
+  return f;
 };
-  module.exports = { array };
+module.exports = { array };
